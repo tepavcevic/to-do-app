@@ -1,7 +1,9 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import { useTasksDispatch } from '../../helpers/TasksContext';
 
-export default function AddTask({ onAddTask }) {
+export default function AddTask() {
   const [text, setText] = useState('');
+  const dispatch = useTasksDispatch();
 
   const handleTextChange = (event) => {
     setText(event.target.value);
@@ -13,7 +15,11 @@ export default function AddTask({ onAddTask }) {
       <button
         onClick={() => {
           setText('');
-          onAddTask(text);
+          dispatch({
+            type: 'added',
+            id: nextId++,
+            text: text,
+          });
         }}
       >
         Add Task
@@ -21,3 +27,5 @@ export default function AddTask({ onAddTask }) {
     </>
   );
 }
+
+let nextId = 0;

@@ -1,16 +1,23 @@
-export default function Task({ task, onChange }) {
+import { useContext } from 'react';
+import { useTasksDispatch } from '../../../helpers/TasksContext';
+
+export default function Task({ task }) {
+  const dispatch = useTasksDispatch();
+
   return (
     <>
       <h2>Task {task.id + 1}</h2>
-      {JSON.stringify(task)}
       <label>
         <input
           type="checkbox"
           checked={task.done}
           onChange={(event) => {
-            onChange({
-              ...task,
-              done: event.target.checked,
+            dispatch({
+              type: 'changed',
+              task: {
+                ...task,
+                done: event.target.checked,
+              },
             });
           }}
         />

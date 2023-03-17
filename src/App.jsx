@@ -1,11 +1,9 @@
-import { useReducer } from 'react';
+import { TasksProvider } from './helpers/TasksContext';
 import './App.css';
 import AddTask from './components/add-task/Index';
 import TaskList from './components/task-list/Index';
 
 function App() {
-  const [tasks, dispatch] = useReducer(tasksReducer, []);
-
   function handleAddTask(text) {
     dispatch({
       type: 'added',
@@ -21,41 +19,13 @@ function App() {
     });
   }
   return (
-    <div className="App">
-      <AddTask onAddTask={handleAddTask} />
-
-      <TaskList tasks={tasks} onChangeTask={handleChangeTask} />
-    </div>
+    <TasksProvider>
+      <div className="App">
+        <AddTask />
+        <TaskList />
+      </div>
+    </TasksProvider>
   );
 }
-
-function tasksReducer(tasks, action) {
-  switch (action.type) {
-    case 'added': {
-      return [
-        ...tasks,
-        {
-          id: action.id,
-          text: action.text,
-          done: false,
-        },
-      ];
-    }
-    case 'changed': {
-      return tasks.map((t) => {
-        if (t.id === action.task.id) {
-          return action.task;
-        } else {
-          return t;
-        }
-      });
-    }
-    default: {
-      return tasks;
-    }
-  }
-}
-
-let nextId = 0;
 
 export default App;
