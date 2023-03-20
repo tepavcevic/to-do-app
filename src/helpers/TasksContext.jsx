@@ -37,6 +37,9 @@ function tasksReducer(tasks, action) {
         }
       });
     }
+    case 'deleted': {
+      return tasks.filter((t) => t.id !== action.id);
+    }
     default: {
       return tasks;
     }

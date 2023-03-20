@@ -11,7 +11,7 @@ input {
   border-radius: 8% / 50%;
 }
 
-button {
+.inputButton {
   font-size: 14px;
   font-weight: 600;
   padding: 14px 36px;

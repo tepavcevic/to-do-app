@@ -1,8 +1,10 @@
 :root {
   --primary-color: #050505;
   --secondary-color: #fff;
+  --danger-color: #ff5c5c;
   --bg-primary: #fff;
   --bg-secondary: #f2f2f2;
+  --bg-danger: #ff5c5c1a;
   --bg-button: #5a95ff;
   --outline: #c8cdda4d;
 }

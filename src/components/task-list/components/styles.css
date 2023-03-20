@@ -1,19 +1,28 @@
 .taskCard {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   height: 48px;
   max-width: 400px;
-  padding: 0 20px;
+  padding: 0 0 0 20px;
   margin: 12px auto;
   background-color: var(--bg-primary);
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.04);
   border-radius: 3px;
+  overflow: hidden;
+}
+
+.hoveringDelete {
+  color: var(--danger-color);
+  background-color: var(--bg-danger);
 }
 
 .taskGroup {
   display: flex;
   align-items: center;
+  width: 100%;
   gap: 8px;
+  overflow: hidden;
 }
 
 #checkIcon {
@@ -32,6 +41,28 @@
 
 .taskDone {
   text-decoration: line-through;
+}
+
+.deletePlaceholder {
+  width: 8px;
+  height: 100%;
+  background-color: var(--danger-color);
+}
+
+.taskDeleteButton {
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  height: 100%;
+  border: none;
+  color: var(--secondary-color);
+  background-color: var(--danger-color);
+}
+
+#deleteIcon {
+  display: inline-block;
+  height: 14px;
+  padding: 0 5px;
 }
 
 @media (max-width: 700px) {

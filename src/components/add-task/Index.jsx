@@ -18,10 +18,12 @@ export default function AddTask() {
           name="taskInput"
           id="taskInput"
           placeholder="New Task..."
+          maxLength={40}
           value={text}
           onChange={handleTextChange}
         />
         <button
+          className="inputButton"
           type="submit"
           onClick={(event) => {
             event.preventDefault();
