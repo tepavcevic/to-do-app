@@ -1,9 +1,13 @@
-import { useContext } from 'react';
+import './styles.css';
 import { useTasks } from '../../helpers/TasksContext';
-import Task from './task/Index';
+import Task from './components/Task';
 
 export default function TaskList() {
   const tasks = useTasks();
 
-  return <>{tasks.length > 0 && tasks.map((task) => <Task key={task.id} task={task} />)}</>;
+  return (
+    <div className="taskList">
+      {tasks.length > 0 && tasks.map((task) => <Task key={task.id} task={task} />)}
+    </div>
+  );
 }

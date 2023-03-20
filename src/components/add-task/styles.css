@@ -1,0 +1,38 @@
+.inputGroup {
+  display: flex;
+  gap: 20px;
+}
+
+input {
+  font-size: 14px;
+  padding: 14px 18px;
+  width: 300px;
+  border: thin solid var(--outline);
+  border-radius: 8% / 50%;
+}
+
+button {
+  font-size: 14px;
+  font-weight: 600;
+  padding: 14px 36px;
+  color: var(--secondary-color);
+  background-color: var(--bg-button);
+  border: thin solid var(--bg-button);
+  border-radius: 20% / 50%;
+}
+
+@media (max-width: 700px) {
+  .inputGroup {
+    flex-direction: column;
+    width: 80vw;
+  }
+
+  input {
+    width: auto;
+  }
+
+  button {
+    width: auto;
+    border-radius: 8% / 50%;
+  }
+}
