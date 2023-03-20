@@ -21,7 +21,9 @@ function App() {
   return (
     <TasksProvider>
       <div className="App">
-        <AddTask />
+        <div className="taskInput">
+          <AddTask />
+        </div>
         <TaskList />
       </div>
     </TasksProvider>

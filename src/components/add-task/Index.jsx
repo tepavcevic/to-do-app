@@ -26,11 +26,13 @@ export default function AddTask() {
           onClick={(event) => {
             event.preventDefault();
             setText('');
-            dispatch({
-              type: 'added',
-              id: nextId++,
-              text: text,
-            });
+            if (text.length) {
+              dispatch({
+                type: 'added',
+                id: nextId++,
+                text: text,
+              });
+            } else alert('Please enter a task');
           }}
         >
           Add Task
