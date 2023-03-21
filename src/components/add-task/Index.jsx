@@ -1,6 +1,7 @@
 import './styles.css';
 import { useState } from 'react';
 import { useTasksDispatch } from '../../contexts/TasksContext';
+import { v4 as uuidv4 } from 'uuid';
 import { TASK_ADDED } from '../../actions';
 
 export default function AddTask() {
@@ -32,7 +33,7 @@ export default function AddTask() {
             if (text.length) {
               dispatch({
                 type: TASK_ADDED,
-                id: nextId++,
+                id: uuidv4(),
                 text: text,
               });
             } else alert('Please enter a task');
@@ -44,5 +45,3 @@ export default function AddTask() {
     </>
   );
 }
-
-let nextId = 0;
