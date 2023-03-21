@@ -1,6 +1,7 @@
 import './styles.css';
 import { useState } from 'react';
-import { useTasksDispatch } from '../../helpers/TasksContext';
+import { useTasksDispatch } from '../../contexts/TasksContext';
+import { TASK_ADDED } from '../../actions';
 
 export default function AddTask() {
   const [text, setText] = useState('');
@@ -30,7 +31,7 @@ export default function AddTask() {
             setText('');
             if (text.length) {
               dispatch({
-                type: 'added',
+                type: TASK_ADDED,
                 id: nextId++,
                 text: text,
               });

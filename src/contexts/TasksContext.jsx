@@ -1,4 +1,5 @@
 import { createContext, useContext, useReducer } from 'react';
+import { TASK_ADDED, TASK_CHANGED, TASK_DELETED } from '../actions';
 
 const TasksContext = createContext(null);
 export const useTasks = () => useContext(TasksContext);
@@ -18,7 +19,7 @@ export function TasksProvider({ children }) {
 
 function tasksReducer(tasks, action) {
   switch (action.type) {
-    case 'added': {
+    case TASK_ADDED: {
       return [
         ...tasks,
         {
@@ -28,7 +29,7 @@ function tasksReducer(tasks, action) {
         },
       ];
     }
-    case 'changed': {
+    case TASK_CHANGED: {
       return tasks.map((t) => {
         if (t.id === action.task.id) {
           return action.task;
@@ -37,7 +38,7 @@ function tasksReducer(tasks, action) {
         }
       });
     }
-    case 'deleted': {
+    case TASK_DELETED: {
       return tasks.filter((t) => t.id !== action.id);
     }
     default: {
