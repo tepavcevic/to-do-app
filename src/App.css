@@ -5,7 +5,7 @@
   color: var(--primary-color);
   background-color: var(--bg-secondary);
   height: 100vh;
-  margin: 30px auto;
+  margin: 30px auto 0 auto;
 }
 
 .taskInput {

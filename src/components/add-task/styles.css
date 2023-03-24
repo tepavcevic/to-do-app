@@ -13,7 +13,7 @@ input {
 
 .inputButton {
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 700;
   padding: 14px 36px;
   color: var(--secondary-color);
   background-color: var(--bg-button);
@@ -31,7 +31,7 @@ input {
     width: auto;
   }
 
-  button {
+  .inputButton {
     width: auto;
     border-radius: 8% / 50%;
   }
